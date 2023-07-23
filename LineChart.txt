@@ -3,17 +3,17 @@ import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
 const data = {
-  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+  labels: ["Suh", "Mon", "Tue", "Wed", "Thu"],
   datasets: [
     {
-      label: "First dataset",
+      label: "🌙",
       data: [33, 53, 85, 41, 44, 65],
-      fill: true,
+      fill: false,
       backgroundColor: "rgba(75,192,192,0.2)",
       borderColor: "rgba(75,192,192,1)",
     },
     {
-      label: "Second dataset",
+      label: "☀️",
       data: [33, 25, 35, 51, 54, 76],
       fill: false,
       borderColor: "#742774",
@@ -21,13 +21,28 @@ const data = {
   ],
 };
 
+const options = {
+  plugins: {
+    legend: {
+      display: true,
+      labels: {
+        color: "rgb(255, 99, 132)",
+      },
+    },
+  },
+  scales: {
+    x: {
+      display: false,
+    },
+    y: {
+      display: false,
+    },
+  },
+};
+
 const LineChart = () => {
   return (
-    <div className="flex justify-center items-center">
-      <div className="w-[20rem] ss:w-[30rem] ss:h-[20rem] mm:w-[35rem] mm:h-[25rem] md:w-[45rem] md:h-[35rem]">
-        <Line data={data} />;
-      </div>
-    </div>
+        <Line data={data} options={options} />
   );
 };
 
